@@ -21,7 +21,9 @@ public class App {
                             "4. Eliminar dinero ahorrado\r\n" + //
                             "5. Buscar cliente por nombre y ver su ahorro\r\n" + //
                             "6. Listar todos los clientes\r\n" + //
-                            "7. Salir\r");        
+                            "7.- Solicitar préstamo\r\n" + //
+                            "8.- Solicitar CDT\r\n" + //   
+                            "9. Salir\r");        
             System.out.print("Seleccione una opcion: ");
             opcionByte = scanner.nextByte();
             
@@ -50,7 +52,15 @@ public class App {
                         System.out.println("\nHaz seleccionado listar todos los clientes.");  
                         listClients();
                         break;
-                    case 7: 
+                    case 7:
+                        System.out.println("\nHaz seleccionado solicitar préstamo.");  
+                        requestLoan();
+                        break;
+                    case 8:
+                        System.out.println("\nHaz seleccionado solicitar CDT.");  
+                        requestCDT();
+                        break;
+                    case 9: 
                         System.out.println("\nSaliendo..."); 
                         break;
                     default:
@@ -84,6 +94,13 @@ public class App {
     static void listClients() {
             
     }
+
+    static void requestLoan() {
+            
+    }
     
+    static void requestCDT() {
+            
+    }
 
 }
