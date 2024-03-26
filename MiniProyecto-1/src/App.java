@@ -71,7 +71,13 @@ public class App {
     }
 
     static void registerClient() {
-        
+        System.out.println("------BIENVENIDO-------");
+        System.out.println("Ingrese sus datos por favor...");
+        c.setNombre();
+        c.setCedula();
+        c.setNivelIngresos();
+        c.setFechaCreacion();
+        clientes.add(c);
     }
 
 
