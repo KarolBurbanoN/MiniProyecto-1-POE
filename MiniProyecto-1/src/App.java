@@ -72,6 +72,7 @@ public class App {
     }
 
     static void registerClient() {
+      
         System.out.println("--------------------------------------------");
         System.out.println("     Haz seleccionado Registrar Cliente");
         System.out.println("--------------------------------------------");
