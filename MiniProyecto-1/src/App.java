@@ -68,7 +68,7 @@ public class App {
                         System.out.println("Opcion incorrecta, intente de nuevo...\n"); 
                         break;
                 }
-        }while(opcionByte!=6);     
+        }while(opcionByte!=9);     
     }
 
     static void registerClient() {
