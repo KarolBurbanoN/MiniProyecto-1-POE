@@ -68,7 +68,6 @@ public class App {
                         System.out.println("Opcion incorrecta, intente de nuevo...\n"); 
                         break;
                 }
-                
         }while(opcionByte!=9);     
     }
 
@@ -229,7 +228,6 @@ public class App {
 
         String busqueda = scanner.next();
         ArrayList<Cliente> clienteEncontrado = searchInClass(clientes, busqueda);
-
         if(!clienteEncontrado.isEmpty()){
         System.out.println("\nPersonas con el nombre "+ busqueda + " encontradas :");
             for(Cliente cliente : clienteEncontrado){
@@ -238,7 +236,8 @@ public class App {
                 System.out.println("Fecha de Creación: " + cliente.getFechaCreacion());
                 System.out.println("Nivel de Ingresos: " + cliente.getNivelIngresos());
                 System.out.println("Saldo de Ahorro: $" + cliente.getSavings());
-            }}
+            }
+        }
         else {System.out.println("No se ha encontrado cliente: " + busqueda);}
 
         System.out.println("\nPresiona Enter para volver al menú principal...");
@@ -246,8 +245,7 @@ public class App {
         scanner.nextLine();
 
     }
-    
-
+  
     static ArrayList<Cliente> searchInClass(ArrayList<Cliente> clientes, String nombreCli){
         ArrayList<Cliente> ClientesDB = new ArrayList<>();
         for(Cliente cliente : clientes) {
@@ -259,7 +257,6 @@ public class App {
         return ClientesDB;
 
     }
-
 
     static void listClients(ArrayList<Cliente> clientes){
         int counter = 1;
