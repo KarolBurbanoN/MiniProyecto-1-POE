@@ -8,6 +8,7 @@ public class Cliente {
     private int cedula;
     private Byte nivelIngresos;
     private String fechaCreacion;
+    private int savings;
     
     public Cliente() {
         this.nombre = "";
@@ -74,5 +75,24 @@ public class Cliente {
         this.fechaCreacion = fechaCreacion;
     }
 
-    
+    public int getSavings() {
+        return savings;
+    }
+
+    public void setSavings(int savings) {
+        this.savings = savings;
+    }
+
+    public void addSavings(int amount) {
+        savings += amount;
+    }
+
+    public void removeSavings(int amount) {
+        if (amount <= savings) {
+            savings -= amount;
+        } else {
+            System.out.println("No puede eliminar más dinero del que tiene en su cuenta.");
+        }
+    }
+
 }
