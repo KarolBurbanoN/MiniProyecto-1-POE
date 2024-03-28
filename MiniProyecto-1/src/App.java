@@ -259,7 +259,7 @@ public class App {
 
 
     static void listClients(ArrayList<Cliente> clientes){
-        int counter = 0;
+        int counter = 1;
         System.out.println("--------------------------------------------");    
         System.out.println("      Haz seleccionado ver cliente");
         System.out.println("--------------------------------------------");
