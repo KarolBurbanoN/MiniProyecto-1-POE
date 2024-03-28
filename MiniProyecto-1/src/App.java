@@ -368,11 +368,11 @@ public class App {
         if(optionSelect == 6){
             amount = clienteSeleccionado.getSavings();
             monto =  amount * 0.05 * 0.4931506849;
-            System.out.println("\nEl valor luego de un año es: $" + monto);
+            System.out.println("\nEl total de dinero ganado pasados 6 meses es de $" + monto);
         }
         else if(optionSelect == 3){
             monto = clienteSeleccionado.getSavings() * 0.03 * 0.2465753425;
-            System.out.println("\nEl valor luego de un año es: $" + monto);
+            System.out.println("\nEl total de dinero ganado pasados 3 meses es de $" + monto);
         }else{
             System.out.print("Valor invalido o salió del menú");
         } 
