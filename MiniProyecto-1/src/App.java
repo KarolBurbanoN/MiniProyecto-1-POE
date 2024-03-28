@@ -221,26 +221,166 @@ public class App {
     
 
     static void searchClients() {
-      
+        System.out.println("--------------------------------------------");    
+        System.out.println("      Haz seleccionado ver cliente");
+        System.out.println("--------------------------------------------");
+        System.out.print("Ingrese la cedula del cliente: ");
+        int busqueda = scanner.nextInt();
+        ArrayList<Cliente> clienteEncontrado = searchInClass(clientes, busqueda);
+        if(!clienteEncontrado.isEmpty()){
+        System.out.println("\nCliente con la cedula "+ busqueda + " encontrada :");
+            for(Cliente cliente : clienteEncontrado){
+                System.out.println("Nombre: " + cliente.getNombre());
+                System.out.println("Cedula: " + cliente.getCedula());
+                System.out.println("Fecha de Creación: " + cliente.getFechaCreacion());
+                System.out.println("Nivel de Ingresos: " + cliente.getNivelIngresos());
+                System.out.println("Ahorros hasta ahora: " + cliente.getSavings());
+
+            }}
+        else {System.out.println("No se ha encontrado cliente: " + busqueda);}
+
+        System.out.println("Presiona Enter para volver al menú principal...");
+        scanner.nextLine();
+        scanner.nextLine();
+            
+    }
+
+    static ArrayList<Cliente> searchInClass(ArrayList<Cliente> clientes, int ceduCli){
+        ArrayList<Cliente> ClientesDB = new ArrayList<>();
+        for(Cliente cliente : clientes) {
+            if(cliente.getCedula() == (ceduCli)){
+                ClientesDB.add(cliente);
+
+            }
+        }
+        return ClientesDB;
 
     }
 
 
-    }
+    static void listClients(ArrayList<Cliente> clientes){
+        int counter = 0;
+        System.out.println("--------------------------------------------");    
+        System.out.println("      Haz seleccionado ver cliente");
+        System.out.println("--------------------------------------------");
+        System.out.println("Los clientes son:");
+        for(Cliente cliente : clientes){
+            System.out.println("Cliente " + counter);
+            System.out.println("Nombre: " + cliente.getNombre()); 
+            counter += 1;           
+        }
 
-
-    static void listClients(){
+        System.out.println("Presiona Enter para volver al menú principal...");
+        scanner.nextLine();
+        scanner.nextLine();
 
     }
 
 
     static void requestLoan() {
+        int deuda = 0;
+
+        System.out.println("--------------------------------------------");    
+        System.out.println("      Haz seleccionado pedir un prestamo");
+        System.out.println("--------------------------------------------");
+
+        if (clientes.isEmpty()) {
+            System.out.println("No hay clientes registrados.");
+            return;
+        }
+    
+        System.out.println("Clientes registrados:");
+        for (int i = 0; i < clientes.size(); i++) {
+            System.out.println((i + 1) + ". " + clientes.get(i).getNombre());
+        }
+
+        System.out.println("--------------------------------------------\n"); 
+        System.out.print("Seleccione el número del cliente: ");
+        int clienteIndex = scanner.nextInt();
+
+        if (clienteIndex < 1 || clienteIndex > clientes.size()) {
+            System.out.println("Selección inválida.");
+            return;
+        }
+
+        Cliente clienteSeleccionado = clientes.get(clienteIndex - 1);
+
+        System.out.print("\nEl nombre del cliente es: " + clienteSeleccionado.getNombre());
+        System.out.println("\nEl saldo de su cuenta de ahorros es $" + clienteSeleccionado.getSavings());
+        System.out.println("Ingrese el valor del prestamo: ");
+        int amount = scanner.nextInt();
+
+        if(amount <= clienteSeleccionado.getSavings() && amount != (2 * clienteSeleccionado.getSavings()) && amount > 0){
+            clienteSeleccionado.removeSavings(amount);
+            System.out.println("\nEl saldo restante de su cuenta de ahorros es $" + clienteSeleccionado.getSavings());
+        }
+        else if(amount > clienteSeleccionado.getSavings() && amount != (2 * clienteSeleccionado.getSavings()) && amount > 0){
+            deuda = amount - clienteSeleccionado.getSavings();
+            double monto=(Math.pow(1.0+0.2/100,0.5)*deuda)/6;
+            amount = clienteSeleccionado.getSavings();
+            System.out.println("\nEl valor en cuotas es: $" + monto);
+            clienteSeleccionado.removeSavings(amount);
+        }else{
+            System.out.print("Valor invalido o salió del menú");
+        } 
+        
+        System.out.println("Presiona Enter para volver al menú principal...");
+        scanner.nextLine();
+        scanner.nextLine();
             
     }
     
 
     static void requestCDT() {
-            
+        double monto = 0;
+        int amount = 0;
+
+        System.out.println("--------------------------------------------");    
+        System.out.println("      Haz seleccionado hacer un CDT");
+        System.out.println("--------------------------------------------");
+
+        if (clientes.isEmpty()) {
+            System.out.println("No hay clientes registrados.");
+            return;
+        }
+    
+        System.out.println("Clientes registrados:");
+        for (int i = 0; i < clientes.size(); i++) {
+            System.out.println((i + 1) + ". " + clientes.get(i).getNombre());
+        }
+
+        System.out.println("--------------------------------------------\n"); 
+        System.out.print("Seleccione el número del cliente: ");
+        int clienteIndex = scanner.nextInt();
+
+        if (clienteIndex < 1 || clienteIndex > clientes.size()) {
+            System.out.println("Selección inválida.");
+            return;
+        }
+
+        Cliente clienteSeleccionado = clientes.get(clienteIndex - 1);
+
+        System.out.print("\nEl nombre del cliente es: " + clienteSeleccionado.getNombre());
+        System.out.println("\nEl saldo de su cuenta de ahorros es $" + clienteSeleccionado.getSavings());
+        System.out.println("Digite 3 o 6 dependiendo del plazo: ");
+        int optionSelect = scanner.nextInt();
+
+        if(optionSelect == 6){
+            amount = clienteSeleccionado.getSavings();
+            monto =  amount * 0.05 * 0.4931506849;
+            System.out.println("\nEl valor luego de un año es: $" + monto);
+        }
+        else if(optionSelect == 3){
+            monto = clienteSeleccionado.getSavings() * 0.03 * 0.2465753425;
+            System.out.println("\nEl valor luego de un año es: $" + monto);
+        }else{
+            System.out.print("Valor invalido o salió del menú");
+        } 
+
+        System.out.println("Presiona Enter para volver al menú principal...");
+        scanner.nextLine();
+        scanner.nextLine();
+        
     }
 
 }
