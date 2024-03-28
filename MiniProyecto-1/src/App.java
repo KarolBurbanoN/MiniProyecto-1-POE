@@ -221,59 +221,16 @@ public class App {
     
 
     static void searchClients() {
-        System.out.println("--------------------------------------------");    
-        System.out.println("      Haz seleccionado buscar cliente");
-        System.out.println("--------------------------------------------");
-        System.out.print("Ingrese el nombre completo del cliente a revisar: ");
-
-        String busqueda = scanner.next();
-        ArrayList<Cliente> clienteEncontrado = searchInClass(clientes, busqueda);
-        if(!clienteEncontrado.isEmpty()){
-        System.out.println("\nPersonas con el nombre "+ busqueda + " encontradas :");
-            for(Cliente cliente : clienteEncontrado){
-                System.out.println("Nombre: " + cliente.getNombre());
-                System.out.println("Cedula: " + cliente.getCedula());
-                System.out.println("Fecha de Creación: " + cliente.getFechaCreacion());
-                System.out.println("Nivel de Ingresos: " + cliente.getNivelIngresos());
-                System.out.println("Saldo de Ahorro: $" + cliente.getSavings());
-            }
-        }
-        else {System.out.println("No se ha encontrado cliente: " + busqueda);}
-
-        System.out.println("\nPresiona Enter para volver al menú principal...");
-        scanner.nextLine();
-        scanner.nextLine();
-
-    }
-  
-    static ArrayList<Cliente> searchInClass(ArrayList<Cliente> clientes, String nombreCli){
-        ArrayList<Cliente> ClientesDB = new ArrayList<>();
-        for(Cliente cliente : clientes) {
-            if(cliente.getNombre().equals(nombreCli)){
-                ClientesDB.add(cliente);
-
-            }
-        }
-        return ClientesDB;
+      
 
     }
 
-    static void listClients(ArrayList<Cliente> clientes){
-        int counter = 1;
-        System.out.println("--------------------------------------------");    
-        System.out.println("      Haz seleccionado listar clientes");
-        System.out.println("--------------------------------------------");
-        System.out.println("Los clientes son:");
-        for(Cliente cliente : clientes){
-            System.out.println("Cliente #" + counter);
-            System.out.println("Nombre: " + cliente.getNombre()); 
 
-            counter += 1;          
-        }
+    }
 
-        System.out.println("\nPresiona Enter para volver al menú principal...");
-        scanner.nextLine();
-        scanner.nextLine(); 
+
+    static void listClients(){
+
     }
 
 
