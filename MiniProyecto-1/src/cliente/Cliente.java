@@ -11,6 +11,7 @@ public class Cliente {
     private int idNumber; // Número de cédula del cliente
     private Byte incomeLevel; // Nivel de ingresos del cliente (del 1 al 5)
     private String creationDate; // Fecha de creación de la cuenta del cliente
+    private int dia, mes, año; 
     private int savings; // Ahorros del cliente
     
     /**
@@ -22,6 +23,7 @@ public class Cliente {
         this.idNumber = 0;
         this.incomeLevel = 0;
         this.creationDate = "";
+        this.dia = this.mes = this.año = 0;
     }
     
     /**
@@ -118,9 +120,15 @@ public class Cliente {
      * Permite al usuario ingresar la fecha de creación de la cuenta (dd-mm-aaaa).
      */
     public void setCreationDate() {
-        System.out.print("Ingrese su fecha creacion (dd-mm-aaaa): ");
-        scanner.nextLine();
-        creationDate = scanner.nextLine();
+        System.out.println("Ingrese su fecha creacion (dd-mm-aaaa)");
+        System.out.print("Ingrese el dia: ");
+        dia = scanner.nextShort();
+        System.out.print("Ingrese el mes: ");
+        mes = scanner.nextShort();
+        System.out.print("Ingrese el año: ");
+        año = scanner.nextShort();
+    
+        fechaCreacion = String.format("%02d-%02d-%04d", dia, mes, año);
     }
 
     /**
