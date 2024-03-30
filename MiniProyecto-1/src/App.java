@@ -79,10 +79,10 @@ public class App {
         System.out.println("Ingrese sus datos por favor...\n");
 
         Cliente c = new Cliente();
-        c.setNombre();
-        c.setCedula();
-        c.setNivelIngresos();
-        c.setFechaCreacion();
+        c.setName();
+        c.setIdNumber();
+        c.setIncomeLevel();
+        c.setCreationDate();
         clientes.add(c);
 
         System.out.println("--------------------------------------------");
@@ -107,7 +107,7 @@ public class App {
         System.out.println("Clientes registrados:");
         
         for (int i = 0; i < clientes.size(); i++) {
-            System.out.println((i + 1) + ". " + clientes.get(i).getNombre());
+            System.out.println((i + 1) + ". " + clientes.get(i).getName());
         }
 
         System.out.println("--------------------------------------------\n"); 
@@ -126,9 +126,9 @@ public class App {
         Cliente clienteSeleccionado = clientes.get(clienteIndex - 1);
         clienteSeleccionado.addSavings(money);
 
-        System.out.println("\nEl dinero se ingreso correctamente " + clienteSeleccionado.getNombre());
+        System.out.println("\nEl dinero se ingreso correctamente " + clienteSeleccionado.getName());
         System.out.println("El saldo de su cuenta de ahorros es $" + clienteSeleccionado.getSavings());
-        System.out.println("--------------------------------------------\n"); 
+        System.out.println("--------------------------------------------"); 
 
         System.out.println("Presiona Enter para volver al menú principal...");
         scanner.nextLine(); // Espera a que el usuario presione Enter
@@ -148,7 +148,7 @@ public class App {
     
         System.out.println("Clientes registrados:");
         for (int i = 0; i < clientes.size(); i++) {
-            System.out.println((i + 1) + ". " + clientes.get(i).getNombre());
+            System.out.println((i + 1) + ". " + clientes.get(i).getName());
         }
 
         System.out.println("--------------------------------------------\n"); 
@@ -168,7 +168,7 @@ public class App {
 
         clienteSeleccionado.setSavings(newMoney);
 
-        System.out.println("\nEl dinero se actualizo correctamente " + clienteSeleccionado.getNombre());
+        System.out.println("\nEl dinero se actualizo correctamente " + clienteSeleccionado.getName());
         System.out.println("El saldo de su cuenta de ahorros es $" + clienteSeleccionado.getSavings());
         System.out.println("------------------------------------------\n"); 
 
@@ -190,7 +190,7 @@ public class App {
     
         System.out.println("Clientes registrados:");
         for (int i = 0; i < clientes.size(); i++) {
-            System.out.println((i + 1) + ". " + clientes.get(i).getNombre());
+            System.out.println((i + 1) + ". " + clientes.get(i).getName());
         }
 
         System.out.println("--------------------------------------------\n"); 
@@ -210,7 +210,7 @@ public class App {
 
         clienteSeleccionado.removeSavings(delete);
 
-        System.out.println("\nEl dinero se elimino correctamente de " + clienteSeleccionado.getNombre());
+        System.out.println("\nEl dinero se elimino correctamente de " + clienteSeleccionado.getName());
         System.out.println("El saldo de su cuenta ahora es $" + clienteSeleccionado.getSavings());
         System.out.println("--------------------------------------------\n");
 
@@ -222,7 +222,7 @@ public class App {
 
     static void searchClients() {
         System.out.println("--------------------------------------------");    
-        System.out.println("      Haz seleccionado ver cliente");
+        System.out.println("      Haz seleccionado Buscar cliente");
         System.out.println("--------------------------------------------");
         System.out.print("Ingrese la cedula del cliente: ");
         int busqueda = scanner.nextInt();
@@ -230,10 +230,10 @@ public class App {
         if(!clienteEncontrado.isEmpty()){
         System.out.println("\nCliente con la cedula "+ busqueda + " encontrada :");
             for(Cliente cliente : clienteEncontrado){
-                System.out.println("Nombre: " + cliente.getNombre());
-                System.out.println("Cedula: " + cliente.getCedula());
-                System.out.println("Fecha de Creación: " + cliente.getFechaCreacion());
-                System.out.println("Nivel de Ingresos: " + cliente.getNivelIngresos());
+                System.out.println("Nombre: " + cliente.getName());
+                System.out.println("Cedula: " + cliente.getIdNumber());
+                System.out.println("Fecha de Creación: " + cliente.getCreationDate());
+                System.out.println("Nivel de Ingresos: " + cliente.getIncomeLevel());
                 System.out.println("Ahorros hasta ahora: " + cliente.getSavings());
 
             }}
@@ -248,7 +248,7 @@ public class App {
     static ArrayList<Cliente> searchInClass(ArrayList<Cliente> clientes, int ceduCli){
         ArrayList<Cliente> ClientesDB = new ArrayList<>();
         for(Cliente cliente : clientes) {
-            if(cliente.getCedula() == (ceduCli)){
+            if(cliente.getIdNumber() == (ceduCli)){
                 ClientesDB.add(cliente);
 
             }
@@ -261,12 +261,12 @@ public class App {
     static void listClients(ArrayList<Cliente> clientes){
         int counter = 1;
         System.out.println("--------------------------------------------");    
-        System.out.println("      Haz seleccionado ver cliente");
+        System.out.println("      Haz seleccionado listar clientes");
         System.out.println("--------------------------------------------");
         System.out.println("Los clientes son:");
         for(Cliente cliente : clientes){
-            System.out.println("Cliente " + counter);
-            System.out.println("Nombre: " + cliente.getNombre()); 
+            System.out.println("Cliente #" + counter);
+            System.out.println("Nombre: " + cliente.getName()); 
             counter += 1;           
         }
 
@@ -291,7 +291,7 @@ public class App {
     
         System.out.println("Clientes registrados:");
         for (int i = 0; i < clientes.size(); i++) {
-            System.out.println((i + 1) + ". " + clientes.get(i).getNombre());
+            System.out.println((i + 1) + ". " + clientes.get(i).getName());
         }
 
         System.out.println("--------------------------------------------\n"); 
@@ -305,18 +305,18 @@ public class App {
 
         Cliente clienteSeleccionado = clientes.get(clienteIndex - 1);
 
-        System.out.print("\nEl nombre del cliente es: " + clienteSeleccionado.getNombre());
+        System.out.print("\nEl nombre del cliente es: " + clienteSeleccionado.getName());
         System.out.println("\nEl saldo de su cuenta de ahorros es $" + clienteSeleccionado.getSavings());
-        System.out.println("Ingrese el valor del prestamo: ");
+        System.out.print("Ingrese el valor del prestamo: ");
         int amount = scanner.nextInt();
 
-        if(amount <= clienteSeleccionado.getSavings() && amount != (2 * clienteSeleccionado.getSavings()) && amount > 0){
+        if(amount <= clienteSeleccionado.getSavings()){
             clienteSeleccionado.removeSavings(amount);
             System.out.println("\nEl saldo restante de su cuenta de ahorros es $" + clienteSeleccionado.getSavings());
         }
-        else if(amount > clienteSeleccionado.getSavings() && amount != (2 * clienteSeleccionado.getSavings()) && amount > 0){
+        else if(amount <= (2 * clienteSeleccionado.getSavings()) && amount > 0){
             deuda = amount - clienteSeleccionado.getSavings();
-            double monto=(Math.pow(1.0+0.2/100,0.5)*deuda)/6;
+            double monto=(Math.pow(1.0 + 0.2/100,0.5)*deuda)/6;
             amount = clienteSeleccionado.getSavings();
             System.out.println("\nEl valor en cuotas es: $" + monto);
             clienteSeleccionado.removeSavings(amount);
@@ -346,7 +346,7 @@ public class App {
     
         System.out.println("Clientes registrados:");
         for (int i = 0; i < clientes.size(); i++) {
-            System.out.println((i + 1) + ". " + clientes.get(i).getNombre());
+            System.out.println((i + 1) + ". " + clientes.get(i).getName());
         }
 
         System.out.println("--------------------------------------------\n"); 
@@ -360,7 +360,7 @@ public class App {
 
         Cliente clienteSeleccionado = clientes.get(clienteIndex - 1);
 
-        System.out.print("\nEl nombre del cliente es: " + clienteSeleccionado.getNombre());
+        System.out.print("\nEl nombre del cliente es: " + clienteSeleccionado.getName());
         System.out.println("\nEl saldo de su cuenta de ahorros es $" + clienteSeleccionado.getSavings());
         System.out.println("Digite 3 o 6 dependiendo del plazo: ");
         int optionSelect = scanner.nextInt();
@@ -384,3 +384,4 @@ public class App {
     }
 
 }
+
