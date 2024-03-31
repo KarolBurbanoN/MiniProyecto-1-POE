@@ -4,7 +4,7 @@
  * @author
  *         - Sebastian castro - 2359435
  *         - Karol burbano - 2359305
- *         - Manuel rocero - 2176007s
+ *         - Manuel rocero - 2176007
  */
 
 import java.util.ArrayList;
