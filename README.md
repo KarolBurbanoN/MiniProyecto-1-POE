@@ -1,3 +1,5 @@
+## Mini Proyecto #1 🖥️
+
 ### 👾 Integrantes:
 
 
@@ -8,3 +10,9 @@ Karol Tatiana Burbano Nasner - 2359305
 
 
 Manuel Rosero - 2176007
+
+
+### 📌Objetivos:
+
+
+- Realizar un CRUD
