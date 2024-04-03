@@ -16,3 +16,5 @@ Manuel Rosero - 2176007
 
 
 - Realizar un CRUD
+
+- Crear una clase y manejar sus atributos
