@@ -53,7 +53,7 @@ public class App {
                     "8. Solicitar CDT\r\n" + //
                     "9. Salir\r");
             System.out.println("--------------------------------------------");
-            System.out.print("Seleccione una option: ");
+            System.out.print("Seleccione una opción: ");
             optionByte = scanner.nextByte();
             System.out.println("--------------------------------------------\n");
 
@@ -77,11 +77,9 @@ public class App {
                     listClients(clients);
                     break;
                 case 7:
-                    System.out.println("\nHaz seleccionado solicitar préstamo.");
                     requestLoan();
                     break;
                 case 8:
-                    System.out.println("\nHaz seleccionado solicitar CDT.");
                     requestCDT();
                     break;
                 case 9:
@@ -105,6 +103,8 @@ public class App {
         System.out.println("     Haz seleccionado Registrar Cliente");
         System.out.println("--------------------------------------------");
         System.out.println("Ingrese sus datos por favor...\n");
+        
+        Cliente c = new Cliente();
 
         c.setName();
         c.setIdNumber();
@@ -159,7 +159,7 @@ public class App {
 
         System.out.println("\nEl dinero se ingreso correctamente " + selectedClient.getName());
         System.out.println("El saldo de su cuenta de ahorros es $" + selectedClient.getSavings());
-        System.out.println("--------------------------------------------\n");
+        System.out.println("--------------------------------------------");
 
         System.out.println("Presiona Enter para volver al menú principal...");
         scanner.nextLine(); 
@@ -266,10 +266,10 @@ public class App {
      */
     static void searchClients() {
         System.out.println("--------------------------------------------");
-        System.out.println("      Haz seleccionado ver cliente");
+        System.out.println("      Haz seleccionado buscar cliente");
         System.out.println("--------------------------------------------");
 
-        System.out.println("¿Desea buscar por nombre completo o solo por el primer nombre?");
+        System.out.println("¿Cómo desea buscar al cliente?");
         System.out.println("1. Nombre completo");
         System.out.println("2. Primer nombre");
         System.out.print("Seleccione una opción: ");
@@ -282,7 +282,7 @@ public class App {
             nameSearch = scanner.nextLine();
         } else if (option == 2) {
             System.out.print("Ingrese el primer nombre del cliente: ");
-            nameSearch = scanner.next();
+            nameSearch = scanner.nextLine();
         } else {
             System.out.println("Opción no válida. Volviendo al menú principal...");
             return;
@@ -304,11 +304,11 @@ public class App {
         if (!foundClients.isEmpty()) {
 
             if (foundClients.size() > 1) {
-                System.out.println("\nSe han encontrado varios clientes con el nombre proporcionado:");
+                System.out.println("Se han encontrado varios clientes con el nombre proporcionado:");
                 displayClientes(foundClients);
             } else {
 
-                System.out.println("\nCliente encontrado:");
+                System.out.println("Cliente encontrado:");
                 displayClientes(foundClients);
             }
         } else {
@@ -316,7 +316,6 @@ public class App {
         }
 
         System.out.println("Presiona Enter para volver al menú principal...");
-        scanner.nextLine();
         scanner.nextLine();
     }
 
@@ -330,9 +329,10 @@ public class App {
         for (Cliente client : foundClients) {
             System.out.println("Nombre: " + client.getName());
             System.out.println("Cédula: " + client.getIdNumber());
+            System.out.println("Ahorros: " + client.getSavings());
             System.out.println("Fecha de Creación: " + client.getCreationDate());
             System.out.println("Nivel de Ingresos: " + client.getIncomeLevel());
-            System.out.println("Ahorros hasta ahora: " + client.getSavings());
+            System.out.println("--------------------------------------------");
         }
     }
 
@@ -346,12 +346,20 @@ public class App {
     static void listClients(ArrayList<Cliente> clients) {
         int counter = 1;
         System.out.println("--------------------------------------------");
-        System.out.println("      Haz seleccionado ver cliente");
+        System.out.println("      Haz seleccionado listar cliente");
         System.out.println("--------------------------------------------");
         System.out.println("Los clientes son:");
+        System.out.println("--------------------------------------------");
         for (Cliente client : clients) {
-            System.out.println("Cliente " + counter);
+            System.out.println("Cliente #" + counter);
+            System.out.println("--------------------------------------------");
             System.out.println("Nombre: " + client.getName());
+            System.out.println("Cédula: " + client.getIdNumber());
+            System.out.println("Ahorros: " + client.getSavings());
+            System.out.println("Fecha de Creación: " + client.getCreationDate());
+            System.out.println("Nivel de Ingresos: " + client.getIncomeLevel());
+            System.out.println("--------------------------------------------");
+
             counter += 1;
         }
 
@@ -485,7 +493,7 @@ public class App {
 
         System.out.print("\nEl nombre del cliente es: " + selectedClient.getName());
         System.out.println("\nEl saldo de su cuenta de ahorros es $" + selectedClient.getSavings());
-        System.out.println("Digite 3 o 6 dependiendo del plazo: ");
+        System.out.print("Digite 3 o 6 dependiendo del plazo: ");
         int optionSelect = scanner.nextInt();
 
         //Muestra las ganancias después de 6 meses o después de 3 meses.
@@ -496,7 +504,7 @@ public class App {
             amount = selectedClient.getSavings() * ((0.03 / 12) * 3);
             System.out.println("\nEl total de dinero ganado pasados 3 meses es de $" + String.format("%.2f", amount));
         } else {
-            System.out.print("Valor invalido o salió del menú");
+            System.out.println("Opción incorrecta.");
         }
 
         System.out.println("Presiona Enter para volver al menú principal...");
