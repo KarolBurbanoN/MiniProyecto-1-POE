@@ -4,7 +4,7 @@
  * @author
  *         - Sebastian castro - 2359435
  *         - Karol burbano - 2359305
- *         - Manuel rocero - 2176007
+ *         - Manuel rosero - 2176007
  */
 
 import java.util.ArrayList;
@@ -113,9 +113,9 @@ public class App {
         clients.add(c);
 
         System.out.println("--------------------------------------------");
-        System.out.println("El cliente ha sido creado exitosamente...\n");
-
-        System.out.println("Presiona Enter para volver al menú principal...");
+        System.out.println("El cliente ha sido creado exitosamente...");
+        System.out.println("--------------------------------------------");
+        System.out.print("Presiona Enter para volver al menú principal...");
         scanner.nextLine(); 
         scanner.nextLine(); 
     }
@@ -141,7 +141,7 @@ public class App {
             System.out.println((i + 1) + ". " + clients.get(i).getName());
         }
 
-        System.out.println("--------------------------------------------\n");
+        System.out.println("--------------------------------------------");
         System.out.print("Seleccione un cliente: ");
 
         int clientIndex = scanner.nextInt();
@@ -161,7 +161,7 @@ public class App {
         System.out.println("El saldo de su cuenta de ahorros es $" + selectedClient.getSavings());
         System.out.println("--------------------------------------------");
 
-        System.out.println("Presiona Enter para volver al menú principal...");
+        System.out.print("Presiona Enter para volver al menú principal...");
         scanner.nextLine(); 
         scanner.nextLine(); 
     }
@@ -186,7 +186,7 @@ public class App {
             System.out.println((i + 1) + ". " + clients.get(i).getName());
         }
 
-        System.out.println("--------------------------------------------\n");
+        System.out.println("--------------------------------------------");
         System.out.print("Seleccione un cliente: ");
         int clientIndex = scanner.nextInt();
 
@@ -207,7 +207,7 @@ public class App {
         System.out.println("El saldo de su cuenta de ahorros es $" + selectedClient.getSavings());
         System.out.println("------------------------------------------\n");
 
-        System.out.println("Presiona Enter para volver al menú principal...");
+        System.out.print("Presiona Enter para volver al menú principal...");
         scanner.nextLine();
         scanner.nextLine();
     }
@@ -232,7 +232,7 @@ public class App {
             System.out.println((i + 1) + ". " + clients.get(i).getName());
         }
 
-        System.out.println("--------------------------------------------\n");
+        System.out.println("--------------------------------------------");
         System.out.print("Seleccione el número del cliente: ");
         int clientIndex = scanner.nextInt();
 
@@ -251,9 +251,9 @@ public class App {
 
         System.out.println("\nEl dinero se elimino correctamente de " + selectedClient.getName());
         System.out.println("El saldo de su cuenta ahora es $" + selectedClient.getSavings());
-        System.out.println("--------------------------------------------\n");
+        System.out.println("--------------------------------------------");
 
-        System.out.println("\nPresiona Enter para volver al menú principal...");
+        System.out.print("Presiona Enter para volver al menú principal...");
         scanner.nextLine();
         scanner.nextLine();
     }
@@ -315,7 +315,7 @@ public class App {
             System.out.println("No se ha encontrado ningún cliente con el nombre proporcionado.");
         }
 
-        System.out.println("Presiona Enter para volver al menú principal...");
+        System.out.print("Presiona Enter para volver al menú principal...");
         scanner.nextLine();
     }
 
@@ -363,7 +363,7 @@ public class App {
             counter += 1;
         }
 
-        System.out.println("Presiona Enter para volver al menú principal...");
+        System.out.print("Presiona Enter para volver al menú principal...");
         scanner.nextLine();
         scanner.nextLine();
 
@@ -394,7 +394,7 @@ public class App {
             System.out.println((i + 1) + ". " + clients.get(i).getName());
         }
 
-        System.out.println("--------------------------------------------\n");
+        System.out.println("--------------------------------------------");
         System.out.print("Seleccione el número del cliente: ");
         int clientIndex = scanner.nextInt();
 
@@ -445,7 +445,8 @@ public class App {
             System.out.print("Valor invalido o salió del menú");
         }
 
-        System.out.println("Presiona Enter para volver al menú principal...");
+        System.out.println("--------------------------------------------");
+        System.out.print("Presiona Enter para volver al menú principal...");
         scanner.nextLine();
         scanner.nextLine();
 
@@ -478,7 +479,7 @@ public class App {
             System.out.println((i + 1) + ". " + clients.get(i).getName());
         }
 
-        System.out.println("--------------------------------------------\n");
+        System.out.println("--------------------------------------------");
         System.out.print("Seleccione el número del cliente: ");
         int clientIndex = scanner.nextInt();
 
@@ -499,15 +500,18 @@ public class App {
         //Muestra las ganancias después de 6 meses o después de 3 meses.
         if (optionSelect == 6) {
             amount = selectedClient.getSavings() * ((0.05 / 12) * 6);
-            System.out.println("\nEl total de dinero ganado pasados 6 meses es de $" + String.format("%.2f", amount));
+            System.out.println("El total de dinero ganado pasados 6 meses es de $" + String.format("%.2f", amount));
+            System.out.println("El saldo total es: " + (amount +  selectedClient.getSavings()));
         } else if (optionSelect == 3) {
             amount = selectedClient.getSavings() * ((0.03 / 12) * 3);
-            System.out.println("\nEl total de dinero ganado pasados 3 meses es de $" + String.format("%.2f", amount));
+            System.out.println("El total de dinero ganado pasados 3 meses es de $" + String.format("%.2f", amount));
+            System.out.println("El saldo total es: " + (amount +  selectedClient.getSavings()));
         } else {
             System.out.println("Opción incorrecta.");
         }
-
-        System.out.println("Presiona Enter para volver al menú principal...");
+        
+        System.out.println("--------------------------------------------");
+        System.out.print("Presiona Enter para volver al menú principal...");
         scanner.nextLine();
         scanner.nextLine();
 
